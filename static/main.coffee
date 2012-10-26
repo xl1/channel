@@ -1,4 +1,6 @@
 # utils
+$ = (id) -> document.getElementById(id)
+
 makeParam = (param) ->
   ("#{key}=#{value}" for own key, value of param).join('&')
 
@@ -21,5 +23,11 @@ main = ->
   # メッセージが来たら反応する
   socket.onopen = -> log 'open'
   socket.onmessage = (e) -> log e.data
+
+  $('button').addEventListener 'click', ->
+    x = $('x').value
+    y = $('y').value
+    get('/channel/put', { from: id, x, y })
+  , false
 
 main()
