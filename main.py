@@ -83,16 +83,44 @@ class GameHandler(webapp2.RequestHandler):
       
       if user.id == game.user1:
         board = list(game.board)
-        board[x + y * 3] = 'o'
+        if board[x+y*3]=='_':
+          board[x + y * 3] = 'o'
+        else:
+          channel.send_message(user.id,'Wrong Place')
+          return
         game.board = ''.join(board)
       else:
         board = list(game.board)
-        board[x + y * 3] = 'x'
+        if board[x+y*3]=='_':
+          board[x + y * 3] = 'x'
+        else:
+          channel.send_message(user.id,'Wrong Place')
+          return
         game.board = ''.join(board)
       channel.send_message(game.user1, game.board)
       channel.send_message(game.user2, game.board)
       # かったかまけたか
+      for i in range(3):
+        if board[3*i]==board[3*i+1] and board[3*i]==board[3*i+2]:
+          channel.send_message(game.user1, user.id+' has won')
+          channel.send_message(game.user2, user.id+' has won')
+          return
+        if board[i]==board[i+3] and board[i]==board[i+6]:
+          channel.send_message(game.user1, user.id+' has won')
+          channel.send_message(game.user2, user.id+' has Won')
+          return
+      if board[0]==board[4] and board[0]==board[8]:
+        channel.send_message(game.user1, user.id+' has Won')
+        channel.send_message(game.user2, user.id+' has Won')
+        return
+      if board[2]==board[4] and board[2]==board[6]:
+        channel.send_message(game.user1, user.id+' has Won')
+        channel.send_message(game.user2, user.id+' has Won')
+        
+        
       game.put()
+	elif type == 'hoge'
+	  a = self.request.get('a')
       
 
 
