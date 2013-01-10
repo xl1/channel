@@ -1,0 +1,107 @@
+#container {
+  width: 400px;
+  margin: auto;
+}
+#field {
+  width: 400px; height: 400px;
+  background: limegreen;
+}
+.button {
+  width: 50px; height: 50px;
+  font-size: 50px;
+  line-height: 50px;
+  float: left;
+  text-align: center;
+}
+.button:hover {
+  background: lime;
+}
+.button:nth-child(8n-7) {
+  clear: left;
+}
+
+.button.piece-o {
+  background-image: -webkit-radial-gradient(white, white 60%, transparent 60%, transparent);
+  background-image: -moz-radial-gradient(white, white 60%, transparent 60%, transparent);
+  background-image: radial-gradient(white, white 60%, transparent 60%, transparent);
+}
+.button.piece-x {
+  background-image: -webkit-radial-gradient(black, black 60%, transparent 60%, transparent);
+  background-image: -webkit-radial-gradient(black, black 60%, transparent 60%, transparent);
+  background-image: -webkit-radial-gradient(black, black 60%, transparent 60%, transparent);
+}
+
+#overlay {
+  pointer-events: none;
+  position: absolute;
+  margin: -40px 0 0 -300px;
+  width: 600px;
+  height: 100px;
+  left: 50%;
+  top: 50%;
+  background: white;
+  border: 1px solid silver;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8);
+  text-align: center;
+  font-size: 30px;
+  line-height: 50px;
+  opacity: 0;
+  -webkit-transition: opacity 300ms;
+  -moz-transition: opacity 300ms;
+  -ms-transition: opacity 300ms;
+  transition: opacity 300ms;
+}
+#overlay.show {
+  opacity: 1;
+}
+
+#info {
+  position: relative;
+  width: 400px;
+  height: 40px;
+}
+#info > div {
+  position: absolute;
+  display: inline-block;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: 100ms;
+  -moz-transition: 100ms;
+  -ms-transition: 100ms;
+  -o-transition: 100ms;
+  transition: 100ms;
+}
+#info .left {
+  top: 0;
+  left: 0;
+  text-align: left;
+  height: 30px;
+}
+#info .right {
+  top: 0;
+  right: 0;
+  text-align: right;
+  height: 30px;
+}
+#info .black {
+  bottom: 0;
+  left: 0;
+  height: 10px;
+  background: black;
+}
+#info .white {
+  bottom: 0;
+  right: 0;
+  background: white;
+  height: 10px;
+  border: 1px solid black;
+}
+#info .on-turn {
+  background: gold;
+}
+
+#logger {
+  height: 300px;
+  font-family: monospace;
+  overflow: scroll;
+}

@@ -21,11 +21,11 @@
 .button.break {
   clear: left;
 }
-
   </style>
+  <script src="/static/eve.js"></script>
   <script src="/_ah/channel/jsapi"></script>
 </head>
-<body data-id="{{ id }}" data-channel-token="{{ token }}">
+<body data-id="{{ id }}" data-channel-token="{{ token }}" data-type="tictactoe">
   <div id="container">
     <div id="field">
       <div class="button break"></div>
@@ -38,7 +38,8 @@
       <div class="button"></div>
       <div class="button"></div>
     </div>
-    <div id="message"></div>
+    <div id="overlay"></div>
   </div>
+  <div id="logger"></div>
   <script src="/static/main.js"></script>
 </body>
